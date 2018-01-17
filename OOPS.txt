@@ -1,0 +1,67 @@
+1. What is Singleton pattern when to use it.
+Ans. Singleton is creational design pattern that makes sure that your application creates only one instance of the class at anytime.Singleton pattern can be implemented by creating class with private construstor and public static property to get the reference of the class.
+
+Code Snippet:
+public class Singleton
+{
+
+	private static Singleton instance;
+	private static object syncRoot = new Object(); //Multithreading implemetation with lock and object
+	
+	private Singleton()
+	{
+
+	}	
+	
+	public static Singleton Instance
+	{
+		get 
+		{
+		  if(instance==null)
+		  {
+			lock(syncRoot)
+			{
+ 			  if(instance==null)	
+			    instance = new Singleton();
+			}
+		  }
+		  return instance;
+		}
+	
+	}
+
+}	
+
+Advantages of Singleton class over Static class.
+1. Singleton class instance can be used as parameter to another method whereas static class cannot.
+2. Singleton class support interface implementation and also extends the class
+3. Dipendency injection can be used with singleton
+4. Singleton class can have instance members.
+5. Singleton objects stores on heap while static objects stores in stack.
+6. We can clone the object of singleton but we can't clone the static class
+7. Singleton can use OOPS feature of polymorphism but static class cannot.
+8. It can be lazily loaded whereas static will be initialized whenever it is first loaded.
+
+
+
+2. Can the singleton class be subclassed?
+ANS. Yes it can be subclassed but derived class can create the instance of singleton which violets the rule of the singleton design pattern.
+
+3. When to use static class instead of Singleton?
+Ans. Static class is a class which contains only static methods. good example of static class is Math class in C# which contatins lots of utility methods for various math functions.
+You can create the static class when you neeed to combine bunch of utility methods together.
+Static class is faster then singleton because of static binding at Compile time.
+
+4.What is interface when to use interface?
+Ans.
+
+5.What is Abstract class when to use it?
+Ans.
+
+6.Difference between Abstract class and Iterface?
+
+
+
+ 
+
+
